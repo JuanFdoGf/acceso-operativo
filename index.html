@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Acceso</title>
+<style>
+  body { margin: 0; padding: 40px 16px; background: #ffffff; color: #333333;
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center; }
+  a { color: #026762; font-weight: 600; }
+</style>
+</head>
+<body>
+<p>Abriendo la aplicación…</p>
+<p><a id="enlace" href="#">Si no se abre sola, toque aquí.</a></p>
+<script>
+  // DESTINO: la URL /exec canónica de la implementación web activa, SIN segmento /u/N/.
+  // Es la ÚNICA línea que cambia cuando cambia la implementación: el QR y el instructivo
+  // apuntan a esta página, no a la /exec, y no se reimprimen.
+  var DESTINO = 'https://script.google.com/macros/s/AKfycbyTibmRH3Y-Duc1IDJIYPDyzBC2pSfW1xxi_DakEWwYgo_6YFYxxM0Y9ke9Hxh593gK/exec';
+  // Conserva la consulta (?vista=...) para que la sonda ?vista=version responda por aquí;
+  // sin consulta, abre el inicio.
+  var consulta = (location.search && location.search.length > 1) ? location.search : '?vista=inicio';
+  var url = DESTINO + consulta + location.hash;
+  document.getElementById('enlace').href = url;
+  location.replace(url);
+</script>
+</body>
+</html>
